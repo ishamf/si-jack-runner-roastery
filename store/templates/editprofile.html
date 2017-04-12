@@ -1,0 +1,45 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Edit Profile</h2>
+
+<form action="" class="form-horizontal">
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Full Name</label>
+    <div class="col-sm-6">
+      <input class="form-control" value="John Doe">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Street Address</label>
+    <div class="col-sm-6">
+      <input class="form-control" value="Jalan Merdeka 72 Bandung">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Zip Code</label>
+    <div class="col-sm-6">
+      <input class="form-control" value="40999">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Phone</label>
+    <div class="col-sm-6">
+      <input class="form-control" value="0811123456789">
+    </div>
+  </div>
+  <div class="form-group">
+    <label class="col-sm-3 control-label">Email</label>
+    <div class="col-sm-6">
+      <input class="form-control" value="jd@example.com">
+    </div>
+  </div>
+  <div class="form-group">
+    <div class="col-sm-offset-3 col-sm-9">
+      <button type="submit" class="btn btn-default">Save Edits</button>
+    </div>
+  </div>
+</form>
+
+{% endblock %}

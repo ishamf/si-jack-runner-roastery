@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+{% load static %}
+
+{% block content %}
+
+<h2>Roasted Coffee Beans</h2>
+<div class="row">
+  {% for product in products %}
+    <div class="col-md-6 product-container">
+      <a href="/p/{{product.id}}">
+        <img src="{% static "store/img/coffee.jpg" %}" alt="" class="img-responsive">
+      </a>
+      <br>
+      <div class="row">
+        <div class="col-md-6 small">
+          <a href="/p/{{product.id}}">{{ product.name }}</a> <br>
+          Rp {{ product.price }} / 100 gr
+        </div>
+        <div class="col-md-6 text-right">
+          <a href="/c/add/{{ product.id }}" class="btn btn-primary">Add to Cart</a>
+        </div>
+      </div>
+    </div>
+  {% endfor %}
+{% endblock %}

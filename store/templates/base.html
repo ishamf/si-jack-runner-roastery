@@ -1,0 +1,77 @@
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+
+    <head>
+
+        <meta charset="utf-8">
+        <meta http-equiv="X-UA-Compatible" content="IE=edge">
+        <meta name="viewport" content="width=device-width, initial-scale=1">
+        <meta name="description" content="">
+        <meta name="author" content="">
+
+        <title>Jack Runner Roastery</title>
+        <link rel="shortcut icon" href="{% static "store/img/icon.jpg" %}" />
+
+        <!-- Bootstrap Core CSS -->
+        <link href="{% static "store/css/bootstrap.min.css" %}" rel="stylesheet">
+
+        <link rel="stylesheet" href="{% static "store/css/main.css" %}">
+
+        <!-- Custom Fonts -->
+        <link href="{% static "store/font-awesome/css/font-awesome.min.css" %}" rel="stylesheet" type="text/css">
+
+        <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
+        <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
+        <!--[if lt IE 9]>
+            <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+            <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+        <![endif]-->
+
+    </head>
+
+    <body>
+        <nav class="jrr-navbar container-fluid">
+          <a href="/"><h1>Jack Runner Roastery</h1></a>
+          <div class="link-bar">
+            <div class="link-bar-left">
+                <!-- <a href="">Coffee</a>
+                <a href="">Cafe</a>
+                <a href="">About Us</a> -->
+            </div>
+            <div class="link-bar-right">
+                {% if user.is_authenticated %}
+                    {% if user.is_superuser %}
+                      <a href="/admin/">Administration</a>
+                      <a href="/orders/">Orders</a>
+                      <a href="/statistics/">Statistics</a>
+                    {% endif %}
+                    <a href="/c/">Cart</a>
+                    <a href="/logout/">Logout</a>
+                {% else %}
+                    <a href="/c/">Cart</a>
+                    <a href="/login/">Login</a>
+                    <a href="/register/">Register</a>
+                {% endif %}
+            </div>
+          </div>
+        </nav>
+
+        <div class="container-fluid">
+          <div class="row">
+            <div class="col-md-8 col-md-offset-2">
+                {% block content %}
+                {% endblock %}
+            </div>
+          </div>
+        </div>
+
+        <!-- jQuery -->
+        <script src="{% static "store/js/jquery.js" %}"></script>
+
+        <!-- Bootstrap Core JavaScript -->
+        <script src="{% static "store/js/bootstrap.min.js" %}"></script>
+    </body>
+
+</html>

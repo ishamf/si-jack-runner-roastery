@@ -1,0 +1,55 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Checkout</h2>
+
+<div class="row">
+  <div class="col-md-4">
+    <h3>Shipping</h3>
+
+    <div class="detailed-text">
+      {{order.full_name}}
+      {{order.address}}
+      {{order.zipcode}}
+
+      {{order.phone}}
+      {{order.email}}
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>Billing</h3>
+
+    <div class="detailed-text">
+      Rp{{order.cart.total_price}}
+
+      Status: Successfully Charged
+
+      CC: XXXX XXXX XXXX {{order.last_4_cc}}
+    </div>
+  </div>
+  <div class="col-md-4">
+    <h3>Items</h3>
+    {% for item in order.cart.items.all %}
+    <div class="row">
+      <div class="col-md-4">
+        <img src="/static/store/img/coffee.jpg" alt="" class="img-responsive">
+      </div>
+      <div class="col-md-8">
+        <h4>{{item.product.name}}</h4>
+        <p class="small">
+          {{item.quantity}} x 100 gr
+        </p>
+      </div>
+    </div>
+    {% endfor %}
+  </div>
+</div>
+
+<div class="text-right">
+  <a href="resolve/" class="btn btn-primary">
+    Mark as Shipped
+  </a>
+</div>
+
+{% endblock %}

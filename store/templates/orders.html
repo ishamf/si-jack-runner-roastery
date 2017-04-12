@@ -1,0 +1,27 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h2>Orders</h2>
+
+<table class="table">
+  <tr>
+    <th>Date Placed</th>
+    <th>Destination</th>
+    <th>Total Price</th>
+  </tr>
+  {% for order in orders %}
+  <tr>
+    <td>
+      {{order.created_date}}
+    </td>
+    <td>{{order.address}}</td>
+    <td>
+      Rp{{order.cart.total_price}}
+      <a href="/orders/{{order.id}}" class="btn btn-sm btn-default">Details</a>
+    </td>
+  </tr>
+  {% endfor %}
+</table>
+
+{% endblock %}
